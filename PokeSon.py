@@ -38,8 +38,6 @@ for item in data:
     
     transformed_data.append(transformed_item)
 
-# Convertir la liste transformée en un DataFrame
-df = pd.DataFrame(transformed_data)
-
 # Enregistrement des données transformées au format JSON
-df.to_json("pokemon_transformed.json", orient="records")
+with open("pokemon_transformed.json", "w", encoding="utf-8") as f:
+    json.dump(transformed_data, f, ensure_ascii=False, indent=4)
